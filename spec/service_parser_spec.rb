@@ -1,5 +1,4 @@
-require "rspec/autorun"
-require_relative "lib/service_parser"
+require "service_parser"
 
 RSpec.describe ServiceParser do
   describe "#adapter_for" do

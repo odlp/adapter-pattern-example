@@ -2,5 +2,5 @@
 
 ```
 bundle install
-bundle exec ruby test.rb
+bundle exec rspec
 ```
