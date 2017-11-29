@@ -3,7 +3,7 @@
 Riffing on the adapter pattern from:
 [http://legacy.new-bamboo.co.uk/blog/2008/02/05/micro-patterns-in-ruby/](http://legacy.new-bamboo.co.uk/blog/2008/02/05/micro-patterns-in-ruby/)
 
-Takes a different approach of finding constant within a module that respond to `#match?`, avoiding inheritance and class variables.
+Takes a different approach of finding constants within a module that respond to `#match?`, avoiding inheritance and class variables.
 
 ## Reference implementation
 
