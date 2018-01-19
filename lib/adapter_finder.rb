@@ -2,22 +2,18 @@ require_relative "adapters"
 
 class AdapterFinder
   def self.adapter_for(raw_url)
-    matched_adapter = all_adapters.detect do |adapter|
-      adapter.match?(raw_url)
-    end
+    matched_adapter = all.detect { |adapter| adapter.match?(raw_url) }
 
-    matched_adapter || raise_no_adapter(raw_url)
+    matched_adapter || raise(NoAdapterFound, raw_url)
   end
 
-  def self.all_adapters
+  def self.all
     Adapters.constants.
       map { |const| Adapters.const_get(const) }.
       select { |const| const.respond_to?(:match?) }
   end
 
-  def self.raise_no_adapter(raw_url)
-    raise NoAdapterFound.new(raw_url)
-  end
+  private_class_method :all
 
   class NoAdapterFound < StandardError
     attr_reader :raw_url
